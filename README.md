@@ -1,6 +1,8 @@
 # Image-Demo
 🌾  前端绘制的一些二维和三维图形例子，主要基于image2D和image3D。
 
+<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/preview.png">
+
 如何启动本地编辑？
 --------------------------------------
 首先，你需要确保本地安装了node.js，然后，执行下面命令安装项目依赖：

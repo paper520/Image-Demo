@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{20:function(t,e,n){"use strict";n.r(e);var s=function(){var t=this.$createElement;return(this._self._c||t)("div",[this._v("散点图")])};s._withStripped=!0;var i=n(3),r=Object(i.a)({},s,[],!1,null,null,null);r.options.__file="src/navs/scatter.vue";e.default=r.exports}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{24:function(t,e,n){"use strict";n.r(e);var i=function(){var t=this.$createElement;return(this._self._c||t)("div",[this._v("雷达图")])};i._withStripped=!0;var r=n(3),s=Object(r.a)({},i,[],!1,null,null,null);s.options.__file="src/navs/radar.vue";e.default=s.exports}}]);

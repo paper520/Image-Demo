@@ -22,6 +22,16 @@ module.exports = {
       test: /\.css$/,
       use: ['vue-style-loader', 'css-loader']
 
+    }, {
+      test: /\.(png|jpg|jpeg|gif|bmp)$/,
+      use: [{
+        loader: "url-loader",
+        options: {
+          name: "dist/[path][name].[ext]",
+          context: "src/assets",
+          limit: 5000
+        }
+      }]
     }]
   },
   devServer: {

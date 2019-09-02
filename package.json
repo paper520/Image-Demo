@@ -34,6 +34,8 @@
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "url-loader": "^2.1.0",
     "vue-loader": "^15.7.1",
     "vue-router": "^3.0.2",
     "vue-style-loader": "^4.1.2",

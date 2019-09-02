@@ -48,6 +48,8 @@ export default {
     let routers = (window.location.href + "").replace(/^.*#\//, "").split("/");
     if (routers && routers.length >= 2) {
       this.flag = routers[1];
+    }else{
+      this.goto('line');
     }
   },
   methods: {

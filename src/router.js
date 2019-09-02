@@ -44,8 +44,14 @@ const router = new VueRouter({
         component: resolve => require(['./navs/gauge.vue'], resolve)
       }]
     }, {
-      path: '/RadialTree',
-      component: resolve => require(['./demos/RadialTree/index.vue'], resolve)
+      path: '/tree-basic',
+      component: resolve => require(['./demos/Tree/basic.vue'], resolve)
+    }, {
+      path: '/tree-orient-bottom-top',
+      component: resolve => require(['./demos/Tree/orient-bottom-top.vue'], resolve)
+    }, {
+      path: '/tree-radial',
+      component: resolve => require(['./demos/Tree/radial.vue'], resolve)
     }, {
       path: '/*',
       redirect: 'menus'

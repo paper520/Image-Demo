@@ -55,6 +55,12 @@ const router = new VueRouter({
     }, {
       path: '/tree-radial',
       component: resolve => require(['./demos/Tree/radial.vue'], resolve)
+    },{
+      path: '/line-simple',
+      component: resolve => require(['./demos/Line/simple.vue'], resolve)
+    },{
+      path: '/line-smooth',
+      component: resolve => require(['./demos/Line/smooth.vue'], resolve)
     }, {
       path: '/*',
       redirect: 'menus'

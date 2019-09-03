@@ -49,10 +49,10 @@ export default {
   },
   mounted() {
     let routers = (window.location.href + "").replace(/^.*#\//, "").split("/");
-    if (routers && routers.length >= 2) {
+    if (routers && routers.length >= 2 && routers[1]) {
       this.flag = routers[1];
     }else{
-      this.goto('tree');
+      this.goto('line');
     }
   },
   methods: {

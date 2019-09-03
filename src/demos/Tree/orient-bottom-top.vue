@@ -1,33 +1,16 @@
 <template>
-    <div id='Tree-basic'>
-        <h2>
-            From Bottom to Top Tree
-            <a href="https://github.com/yelloxing/Image-Demo/blob/master/src/demos/Tree/orient-bottom-top.vue">查看代码</a>
-        </h2>
-    </div>
+  <ui-demos url='Tree/orient-bottom-top'>
+    From Bottom to Top Tree
+  </ui-demos>
 </template>
-<style scoped>
-div {
-  text-align: center;
-  overflow: auto;
-  height: calc(100vh - 50px);
-}
-div > h2 {
-  line-height: 2em;
-  padding-bottom: 30px;
-}
-div>h2>a{
-  color:rgb(255, 255, 255);
-  background-color: rgb(13, 230, 238);
-  padding:5px;
-  font-size: 16px;
-}
-</style>
-
 <script>
+import uiDemos from "../../components/ui-demos.vue";
 import program from "../../datas/simple.program.json.js";
 import $$ from "image2d";
 export default {
+  components: {
+    uiDemos
+  },
   mounted() {
     let width = 700,
       height = 500;
@@ -41,7 +24,7 @@ export default {
         height
       })
       // 画布添加到页面
-      .appendTo("#Tree-basic")
+      .appendTo("#demo")
       // 获取画笔
       .painter();
 

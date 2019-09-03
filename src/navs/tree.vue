@@ -8,15 +8,15 @@
       <ul>
         <li>
           <h4>From Left to Right Tree</h4>
-          <a href="#/tree-basic" style='background-image:url("./src/navs/tree/tree-basic.png")'></a>
+          <a href="#/tree-basic" target="_blank" style='background-image:url("./src/navs/tree/tree-basic.png")'></a>
         </li>
         <li>
           <h4>From Bottom to Top Tree</h4>
-          <a href="#/tree-orient-bottom-top" style='background-image:url("./src/navs/tree/tree-orient-bottom-top.png")'></a>
+          <a href="#/tree-orient-bottom-top" target="_blank" style='background-image:url("./src/navs/tree/tree-orient-bottom-top.png")'></a>
         </li>
         <li>
           <h4>Radial Tree</h4>
-          <a href="#/tree-radial" style='background-image:url("./src/navs/tree/tree-radial.png")'></a>
+          <a href="#/tree-radial" target="_blank" style='background-image:url("./src/navs/tree/tree-radial.png")'></a>
         </li>
       </ul>
     </template>

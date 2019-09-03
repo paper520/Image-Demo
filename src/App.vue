@@ -49,7 +49,7 @@ export default {
     if (routers && routers.length >= 2) {
       this.flag = routers[1];
     }else{
-      this.goto('line');
+      this.goto('tree');
     }
   },
   methods: {

@@ -1,3 +1,159 @@
 <template>
-    <div>radial tree</div>
+    <div id='Tree-basic'>
+        <h2>
+            Radial Tree
+            <a href="https://github.com/yelloxing/Image-Demo/blob/master/src/demos/Tree/radial.vue">查看代码</a>
+        </h2>
+    </div>
 </template>
+<style scoped>
+div {
+  text-align: center;
+  overflow: auto;
+  height: calc(100vh - 50px);
+}
+div > h2 {
+  line-height: 2em;
+  padding-bottom: 30px;
+}
+div>h2>a{
+  color:rgb(255, 255, 255);
+  background-color: rgb(13, 230, 238);
+  padding:5px;
+  font-size: 16px;
+}
+</style>
+
+<script>
+import program from "../../datas/program.json.js";
+import $$ from "image2d";
+export default {
+  mounted() {
+    let painter = $$("<canvas>非常抱歉，您的浏览器不支持canvas!</canvas>")
+      // 设置画布大小
+      .attr({
+        width: 700,
+        height: 700
+      })
+      // 画布添加到页面
+      .appendTo("#Tree-basic")
+      // 获取画笔
+      .painter();
+
+    // 树图使用布局计算结点坐标
+    let layout = $$.treeLayout({
+      // 数据格式配置（必须的，基本配置）
+      root: function(initTree) {
+        return initTree;
+      },
+      id: function(treedata) {
+        return treedata.name;
+      },
+      child: function(parentTree, initTree) {
+        return parentTree.children;
+      }
+    })
+      .config({
+        // 配置具体的类型（可以不配置）
+        type: "circle",
+        cx: 350,
+        cy: 350,
+        radius: 300,
+        "begin-deg": 0,
+        deg: Math.PI * 2
+      })
+
+      // 设置绘图方法
+      .drawer(function(tree) {
+        let key, item, pitem;
+        for (key in tree.node) {
+          item = tree.node[key];
+
+          // 画结点
+          painter
+            .config({
+              fillStyle: "#fff",
+              strokeStyle: "red"
+            })
+            .strokeCircle(item.left, item.top, 3)
+            .fillCircle(item.left, item.top, 3);
+
+          // 如果不是根结点
+          if (item.id !== tree.root) {
+            pitem = tree.node[item.pid];
+
+            let p0 = $$.move(
+                350 - item.left,
+                350 - item.top,
+                3,
+                item.left,
+                item.top
+              ),
+              p3;
+
+            // 画连线
+            painter
+              .config("strokeStyle", "#aaa")
+              .beginPath()
+              .moveTo(p0[0], p0[1]);
+
+            if (item.pid === tree.root) {
+              p3 = $$.move(
+                item.left - pitem.left,
+                item.top - pitem.top,
+                3,
+                pitem.left,
+                pitem.top
+              );
+              painter.lineTo(p3[0], p3[1]);
+            } else {
+              let p1 = $$.move(
+                350 - item.left,
+                350 - item.top,
+                50,
+                item.left,
+                item.top
+              );
+              let p2 = $$.move(
+                pitem.left - 350,
+                pitem.top - 350,
+                50,
+                pitem.left,
+                pitem.top
+              );
+              p3 = $$.move(
+                pitem.left - 350,
+                pitem.top - 350,
+                3,
+                pitem.left,
+                pitem.top
+              );
+              painter.bezierCurveTo(p1[0], p1[1], p2[0], p2[1], p3[0], p3[1]);
+            }
+
+            painter.stroke();
+
+            // 文字
+            let $p0 = $$.move(
+              350 - item.left,
+              350 - item.top,
+              -5,
+              item.left,
+              item.top
+            );
+            painter
+              .config({
+                fillStyle: "#555",
+                "font-size": "9",
+                textBaseline: "middle"
+              })
+              .fillText(item.id, $p0[0], $p0[1], item.deg);
+          }
+        }
+      });
+
+    // 启动布局
+    layout(program.data);
+  }
+};
+</script>

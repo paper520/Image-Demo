@@ -42,6 +42,9 @@ const router = new VueRouter({
       }, {
         path: 'gauge',
         component: resolve => require(['./navs/gauge.vue'], resolve)
+      }, {
+        path: 'GL',
+        component: resolve => require(['./navs/GL.vue'], resolve)
       }]
     }, {
       path: '/tree-basic',

@@ -31,6 +31,9 @@
       <li :class="{'active':flag=='gauge'}" @click='goto("gauge")'>
         <i style='background-position-y: -270px;'></i>仪表盘
       </li>
+      <li :class="{'active':flag=='GL'}" @click='goto("GL")'>
+        <i style='background-position-y: -871px;'></i>三维图像
+      </li>
     </ul>
     <div>
       <router-view></router-view>

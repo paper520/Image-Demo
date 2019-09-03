@@ -40,7 +40,7 @@ export default {
       // Y轴
       .beginPath()
       .moveTo(50, 10)
-      .lineTo(50, height - 50)
+      .lineTo(50, height - 40)
       .bind("<path>")
       .appendTo()
       .stroke();
@@ -120,7 +120,11 @@ export default {
     let fx = $$.cardinal().setP(tempP);
 
     // 启动动画
-    painter.beginPath().lineTo(tempP[0][0], tempP[0][1]);
+    painter
+      .bind("<path>")
+      .appendTo()
+      .beginPath()
+      .lineTo(tempP[0][0], tempP[0][1]);
     $$.animation(
       deep => {
         let x = tempP[0][0] + (tempP[6][0] - tempP[0][0]) * deep;

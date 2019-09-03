@@ -38,7 +38,7 @@ export default {
       // Y轴
       .beginPath()
       .moveTo(50, 10)
-      .lineTo(50, height - 50)
+      .lineTo(50, height - 40)
       .stroke();
 
     // X轴承刻度

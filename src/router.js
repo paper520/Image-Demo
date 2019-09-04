@@ -71,6 +71,9 @@ const router = new VueRouter({
       path: '/bar-polar-real-estate',
       component: resolve => require(['./demos/Bar/polar-real-estate.vue'], resolve)
     }, {
+      path: '/pie-doughnut',
+      component: resolve => require(['./demos/Pie/doughnut.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

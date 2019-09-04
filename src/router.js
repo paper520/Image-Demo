@@ -62,8 +62,8 @@ const router = new VueRouter({
       path: '/line-smooth',
       component: resolve => require(['./demos/Line/smooth.vue'], resolve)
     }, {
-      path: '/bar-animation-delay',
-      component: resolve => require(['./demos/Bar/animation-delay.vue'], resolve)
+      path: '/bar-simple',
+      component: resolve => require(['./demos/Bar/simple.vue'], resolve)
     }, {
       path: '/bar-gradient',
       component: resolve => require(['./demos/Bar/gradient.vue'], resolve)

@@ -7,16 +7,16 @@
     <template v-slot:content>
       <ul>
         <li>
-          <h4>极坐标系下的堆叠柱状图</h4>
-          <a href="#/bar-polar-real-estate" target="_blank" style='background-image:url("./src/navs/bar/bar-polar-real-estate.png")'></a>
+          <h4>Bar Simple</h4>
+          <a href="#/bar-simple" target="_blank" style='background-image:url("./src/navs/bar/bar-simple.png")'></a>
         </li>
         <li>
           <h4>渐变色</h4>
           <a href="#/bar-gradient" target="_blank" style='background-image:url("./src/navs/bar/bar-gradient.png")'></a>
         </li>
         <li>
-          <h4>柱状图动画延迟</h4>
-          <a href="#/bar-animation-delay" target="_blank" style='background-image:url("./src/navs/bar/bar-animation-delay.png")'></a>
+          <h4>极坐标系下的堆叠柱状图</h4>
+          <a href="#/bar-polar-real-estate" target="_blank" style='background-image:url("./src/navs/bar/bar-polar-real-estate.png")'></a>
         </li>
       </ul>
     </template>

@@ -6,7 +6,14 @@
     </template>
     <template v-slot:content>
       <ul>
-        
+        <li>
+          <h4>Candlestick Simple</h4>
+          <a
+            href="#/candlestick-simple"
+            target="_blank"
+            style="background-image:url('./src/navs/candlestick/candlestick-simple.png')"
+          ></a>
+        </li>
       </ul>
     </template>
   </ui-navs>

@@ -74,6 +74,9 @@ const router = new VueRouter({
       path: '/pie-doughnut',
       component: resolve => require(['./demos/Pie/doughnut.vue'], resolve)
     }, {
+      path: '/candlestick-simple',
+      component: resolve => require(['./demos/candlestick/simple.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

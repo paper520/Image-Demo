@@ -68,8 +68,7 @@ export default {
 
     // 绘制圆形刻度尺
     painter.strokeCircle(size / 2, size / 2, size / 2 - 50).config({
-      textAlign: "center",
-      "font-size": 12
+      textAlign: "center"
     });
     for (let i = 0; i < cities.length; i++) {
       let p = $$.rotate(
@@ -91,72 +90,76 @@ export default {
         )
         // 文字
         .fillText(cities[i], p[0], p[1]);
+    }
 
-      // 绘制几个灰色圈
-      painter.config("strokeStyle", "gray");
-      for (let i = 1; i <= 4; i++) {
-        painter.strokeCircle(
-          size / 2,
-          size / 2,
-          i * (size / 2 - 50) / 5,
-          0,
-          Math.PI * 2
-        );
-      }
+    // 绘制几个灰色圈
+    painter.config("strokeStyle", "gray");
+    for (let i = 1; i <= 4; i++) {
+      painter.strokeCircle(
+        size / 2,
+        size / 2,
+        i * (size / 2 - 50) / 5,
+        0,
+        Math.PI * 2
+      );
+    }
 
+    painter
+      .config("strokeStyle", "black")
+      // 绘制垂直刻度尺
+      .beginPath()
+      .moveTo(size / 2, size / 2)
+      .lineTo(size / 2, 50)
+      .stroke();
+
+    let rules = ["0", "2,000", "4,000", "6,000", "8,000", "10,000"];
+
+    painter.config({
+      "font-size": 12,
+      textAlign: "right"
+    });
+    for (let i = 0; i < rules.length; i++) {
       painter
-        .config("strokeStyle", "black")
-        // 绘制垂直刻度尺
+        // 文字
+        .fillText(
+          rules[i],
+          size / 2 - 15,
+          size / 2 - (size / 2 - 50) / (rules.length - 1) * i
+        )
+        // 刻度
         .beginPath()
-        .moveTo(size / 2, size / 2)
-        .lineTo(size / 2, 50)
+        .moveTo(
+          size / 2 - 10,
+          size / 2 - (size / 2 - 50) / (rules.length - 1) * i
+        )
+        .lineTo(size / 2, size / 2 - (size / 2 - 50) / (rules.length - 1) * i)
         .stroke();
+    }
 
-      let rules = ["0", "2,000", "4,000", "6,000", "8,000", "10,000"];
+    // 绘制扇形
+    for (let i = 0; i < data.length; i++) {
+      painter
+        // 最高和最低
+        .config("fillStyle", "rgb(194, 55, 54)")
+        .fillArc(
+          size / 2,
+          size / 2,
+          data[i][0] / 10000 * (size / 2 - 50),
+          data[i][1] / 10000 * (size / 2 - 50),
+          Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
+          Math.PI * 2 / data.length - 0.08
+        )
 
-      for (let i = 0; i < rules.length; i++) {
-        painter
-          // 文字
-          .fillText(
-            rules[i],
-            size / 2 - 25,
-            size / 2 - (size / 2 - 50) / (rules.length - 1) * i
-          )
-          // 刻度
-          .beginPath()
-          .moveTo(
-            size / 2 - 10,
-            size / 2 - (size / 2 - 50) / (rules.length - 1) * i
-          )
-          .lineTo(size / 2, size / 2 - (size / 2 - 50) / (rules.length - 1) * i)
-          .stroke();
-      }
-
-      // 绘制扇形
-      for (let i = 0; i < data.length; i++) {
-        painter
-          // 最高和最低
-          .config("fillStyle", "rgb(194, 55, 54)")
-          .fillArc(
-            size / 2,
-            size / 2,
-            data[i][0] / 10000 * (size / 2 - 50),
-            data[i][1] / 10000 * (size / 2 - 50),
-            Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
-            Math.PI * 2 / data.length - 0.08
-          )
-
-          // 绘制平均值
-          .config("fillStyle", "#000")
-          .fillArc(
-            size / 2,
-            size / 2,
-            data[i][2] / 10000 * (size / 2 - 50) - 2,
-            data[i][2] / 10000 * (size / 2 - 50) + 2,
-            Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
-            Math.PI * 2 / data.length - 0.08
-          );
-      }
+        // 绘制平均值
+        .config("fillStyle", "#000")
+        .fillArc(
+          size / 2,
+          size / 2,
+          data[i][2] / 10000 * (size / 2 - 50) - 2,
+          data[i][2] / 10000 * (size / 2 - 50) + 2,
+          Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
+          Math.PI * 2 / data.length - 0.08
+        );
     }
   }
 };

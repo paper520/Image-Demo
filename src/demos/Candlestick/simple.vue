@@ -1,5 +1,5 @@
 <template>
-  <ui-demos url="candlestick/simple">Candlestick Simple</ui-demos>
+  <ui-demos url="Candlestick/simple">Candlestick Simple</ui-demos>
 </template>
 <script>
 import uiDemos from "../../components/ui-demos.vue";

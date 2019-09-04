@@ -55,12 +55,21 @@ const router = new VueRouter({
     }, {
       path: '/tree-radial',
       component: resolve => require(['./demos/Tree/radial.vue'], resolve)
-    },{
+    }, {
       path: '/line-simple',
       component: resolve => require(['./demos/Line/simple.vue'], resolve)
-    },{
+    }, {
       path: '/line-smooth',
       component: resolve => require(['./demos/Line/smooth.vue'], resolve)
+    }, {
+      path: '/bar-animation-delay',
+      component: resolve => require(['./demos/Bar/animation-delay.vue'], resolve)
+    }, {
+      path: '/bar-gradient',
+      component: resolve => require(['./demos/Bar/gradient.vue'], resolve)
+    }, {
+      path: '/bar-polar-real-estate',
+      component: resolve => require(['./demos/Bar/polar-real-estate.vue'], resolve)
     }, {
       path: '/*',
       redirect: 'menus'

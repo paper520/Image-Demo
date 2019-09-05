@@ -39,28 +39,29 @@ export default {
       allValue += data[i].value;
     }
 
-    let colors = getColors(data.length);
-    let preDeg = -Math.PI / 2;
-    // 绘制饼图
-    for (let i = 0; i < data.length; i++) {
-      painter
-        // 绘制饼
-        .config("fillStyle", colors[i])
-        .fillArc(
-          width / 2,
-          height / 2,
-          height / 4,
-          height / 8 * 3,
-          preDeg,
-          data[i].value / allValue * Math.PI * 2
-        )
-        // 绘制提示文字
-        .fillRect(20, i * 30 + 20, 30, 16)
-        .config("fillStyle", "#000")
-        .fillText(data[i].name, 60, i * 30 + 28);
+    let colors = ["#b34038", "#334553", "#6f9fa7", "#c9856b", "#9cc5b0"];
 
-      preDeg += data[i].value / allValue * Math.PI * 2;
-    }
+    $$.pieLayout({
+      value: data => data.value
+    }).drawer(datas => {
+      for (let i = 0; i < datas.length; i++) {
+        painter
+          .config("fillStyle", colors[i])
+          // 绘制饼
+          .fillArc(
+            width / 2,
+            height / 2,
+            height / 4,
+            height / 8 * 3,
+            datas[i].beginDeg,
+            datas[i].deg
+          )
+          // 绘制提示文字
+          .fillRect(20, i * 30 + 20, 30, 16)
+          .config("fillStyle", "#000")
+          .fillText(datas[i].data.name, 60, i * 30 + 28);
+      }
+    })(data);
   }
 };
 </script>

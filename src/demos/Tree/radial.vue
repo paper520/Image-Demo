@@ -48,90 +48,95 @@ export default {
 
       // 设置绘图方法
       .drawer(function(tree) {
-        let key, item, pitem;
-        for (key in tree.node) {
-          item = tree.node[key];
+        let index = 0;
+        for (let key in tree.node) {
+          let item, pitem;
+          index += 1;
 
-          // 画结点
-          painter
-            .config({
-              fillStyle: "#fff",
-              strokeStyle: "red"
-            })
-            .strokeCircle(item.left, item.top, 3)
-            .fillCircle(item.left, item.top, 3);
+          window.setTimeout(() => {
+            item = tree.node[key];
 
-          // 如果不是根结点
-          if (item.id !== tree.root) {
-            pitem = tree.node[item.pid];
-
-            let p0 = $$.move(
-                350 - item.left,
-                350 - item.top,
-                3,
-                item.left,
-                item.top
-              ),
-              p3;
-
-            // 画连线
-            painter
-              .config("strokeStyle", "#aaa")
-              .beginPath()
-              .moveTo(p0[0], p0[1]);
-
-            if (item.pid === tree.root) {
-              p3 = $$.move(
-                item.left - pitem.left,
-                item.top - pitem.top,
-                3,
-                pitem.left,
-                pitem.top
-              );
-              painter.lineTo(p3[0], p3[1]);
-            } else {
-              let p1 = $$.move(
-                350 - item.left,
-                350 - item.top,
-                50,
-                item.left,
-                item.top
-              );
-              let p2 = $$.move(
-                pitem.left - 350,
-                pitem.top - 350,
-                50,
-                pitem.left,
-                pitem.top
-              );
-              p3 = $$.move(
-                pitem.left - 350,
-                pitem.top - 350,
-                3,
-                pitem.left,
-                pitem.top
-              );
-              painter.bezierCurveTo(p1[0], p1[1], p2[0], p2[1], p3[0], p3[1]);
-            }
-
-            painter.stroke();
-
-            // 文字
-            let $p0 = $$.move(
-              350 - item.left,
-              350 - item.top,
-              -5,
-              item.left,
-              item.top
-            );
+            // 画结点
             painter
               .config({
-                fillStyle: "#555",
-                "font-size": "9",
-                textBaseline: "middle"
+                fillStyle: "#fff",
+                strokeStyle: "red"
               })
-              .fillText(item.id, $p0[0], $p0[1], item.deg);
-          }
+              .strokeCircle(item.left, item.top, 3)
+              .fillCircle(item.left, item.top, 3);
+
+            // 如果不是根结点
+            if (item.id !== tree.root) {
+              pitem = tree.node[item.pid];
+
+              let p0 = $$.move(
+                  350 - item.left,
+                  350 - item.top,
+                  3,
+                  item.left,
+                  item.top
+                ),
+                p3;
+
+              // 画连线
+              painter
+                .config("strokeStyle", "#aaa")
+                .beginPath()
+                .moveTo(p0[0], p0[1]);
+
+              if (item.pid === tree.root) {
+                p3 = $$.move(
+                  item.left - pitem.left,
+                  item.top - pitem.top,
+                  3,
+                  pitem.left,
+                  pitem.top
+                );
+                painter.lineTo(p3[0], p3[1]);
+              } else {
+                let p1 = $$.move(
+                  350 - item.left,
+                  350 - item.top,
+                  50,
+                  item.left,
+                  item.top
+                );
+                let p2 = $$.move(
+                  pitem.left - 350,
+                  pitem.top - 350,
+                  50,
+                  pitem.left,
+                  pitem.top
+                );
+                p3 = $$.move(
+                  pitem.left - 350,
+                  pitem.top - 350,
+                  3,
+                  pitem.left,
+                  pitem.top
+                );
+                painter.bezierCurveTo(p1[0], p1[1], p2[0], p2[1], p3[0], p3[1]);
+              }
+
+              painter.stroke();
+
+              // 文字
+              let $p0 = $$.move(
+                350 - item.left,
+                350 - item.top,
+                -5,
+                item.left,
+                item.top
+              );
+              painter
+                .config({
+                  fillStyle: "#555",
+                  "font-size": "9",
+                  textBaseline: "middle"
+                })
+                .fillText(item.id, $p0[0], $p0[1], item.deg);
+            }
+          }, index * 10);
         }
       });
 

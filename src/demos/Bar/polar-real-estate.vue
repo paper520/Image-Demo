@@ -136,31 +136,44 @@ export default {
         .stroke();
     }
 
-    // 绘制扇形
-    for (let i = 0; i < data.length; i++) {
-      painter
-        // 最高和最低
-        .config("fillStyle", "rgb(194, 55, 54)")
-        .fillArc(
-          size / 2,
-          size / 2,
-          data[i][0] / 10000 * (size / 2 - 50),
-          data[i][1] / 10000 * (size / 2 - 50),
-          Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
-          Math.PI * 2 / data.length - 0.08
-        )
-
+    $$.animation(
+      deep => {
+        // 绘制扇形
+        for (let i = 0; i < data.length; i++) {
+          painter
+            // 最高和最低
+            .config("fillStyle", "rgb(194, 55, 54)")
+            .fillArc(
+              size / 2,
+              size / 2,
+              data[i][0] / 10000 * (size / 2 - 50),
+              (data[i][1] * deep > data[i][0]
+                ? data[i][1] * deep
+                : data[i][0]) /
+                10000 *
+                (size / 2 - 50),
+              Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
+              Math.PI * 2 / data.length - 0.08
+            );
+        }
+      },
+      700,
+      () => {
         // 绘制平均值
-        .config("fillStyle", "#000")
-        .fillArc(
-          size / 2,
-          size / 2,
-          data[i][2] / 10000 * (size / 2 - 50) - 2,
-          data[i][2] / 10000 * (size / 2 - 50) + 2,
-          Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
-          Math.PI * 2 / data.length - 0.08
-        );
-    }
+        for (let i = 0; i < data.length; i++) {
+          painter
+            .config("fillStyle", "#000")
+            .fillArc(
+              size / 2,
+              size / 2,
+              data[i][2] / 10000 * (size / 2 - 50) - 2,
+              data[i][2] / 10000 * (size / 2 - 50) + 2,
+              Math.PI / cities.length * 2 * i - Math.PI / 2 + 0.04,
+              Math.PI * 2 / data.length - 0.08
+            );
+        }
+      }
+    );
   }
 };
 </script>

@@ -44,23 +44,34 @@ export default {
     $$.pieLayout({
       value: data => data.value
     }).drawer(datas => {
-      for (let i = 0; i < datas.length; i++) {
-        painter
-          .config("fillStyle", colors[i])
-          // 绘制饼
-          .fillArc(
-            width / 2,
-            height / 2,
-            height / 4,
-            height / 8 * 3,
-            datas[i].beginDeg,
-            datas[i].deg
-          )
-          // 绘制提示文字
-          .fillRect(20, i * 30 + 20, 30, 16)
-          .config("fillStyle", "#000")
-          .fillText(datas[i].data.name, 60, i * 30 + 28);
-      }
+      $$.animation(
+        deep => {
+          for (let i = 0; i < datas.length; i++) {
+            painter
+              .config("fillStyle", colors[i])
+              // 绘制饼
+              .fillArc(
+                width / 2,
+                height / 2,
+                height / 8 * (2.5 - deep / 2),
+                height / 8 * (2.5 + deep / 2),
+                datas[i].beginDeg,
+                datas[i].deg*deep
+              );
+          }
+        },
+        700,
+        () => {
+          for (let i = 0; i < datas.length; i++) {
+            painter
+              // 绘制提示文字
+              .config("fillStyle", colors[i])
+              .fillRect(20, i * 30 + 20, 30, 16)
+              .config("fillStyle", "#000")
+              .fillText(datas[i].data.name, 60, i * 30 + 28);
+          }
+        }
+      );
     })(data);
   }
 };

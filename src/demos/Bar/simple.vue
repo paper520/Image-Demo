@@ -61,14 +61,16 @@ export default {
 
     // 绘制值
     painter.config("fillStyle", "#b34038");
-    for (let i = 0; i < data.length; i++) {
-      painter.fillRect(
-        (width - 50) / 7 * i + 50 + 10,
-        height - 50,
-        (width - 50) / 7 - 20,
-        -data[i] / maxValue * (height - 60)
-      );
-    }
+    $$.animation(deep => {
+      for (let i = 0; i < data.length; i++) {
+        painter.fillRect(
+          (width - 50) / 7 * i + 50 + 10,
+          height - 50,
+          (width - 50) / 7 - 20,
+          -data[i] / maxValue * deep * (height - 60)
+        );
+      }
+    }, 700);
   }
 };
 </script>

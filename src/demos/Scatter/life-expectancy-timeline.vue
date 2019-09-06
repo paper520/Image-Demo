@@ -1,5 +1,5 @@
 <template>
-  <ui-demos url='Radar/basic'>
+  <ui-demos url='Scatter/life-expectancy-timeline'>
     各国人均寿命与GDP关系演变
   </ui-demos>
 </template>

@@ -6,7 +6,10 @@
     </template>
     <template v-slot:content>
       <ul>
-        
+        <li>
+          <h4>各国人均寿命与GDP关系演变</h4>
+          <a href="#/scatter-life-expectancy-timeline" target="_blank" style='background-image:url("./src/navs/scatter/scatter-life-expectancy-timeline.jpg")'></a>
+        </li>
       </ul>
     </template>
   </ui-navs>

@@ -75,16 +75,19 @@ const router = new VueRouter({
       component: resolve => require(['./demos/Pie/doughnut.vue'], resolve)
     }, {
       path: '/candlestick-simple',
-      component: resolve => require(['./demos/candlestick/simple.vue'], resolve)
+      component: resolve => require(['./demos/Candlestick/simple.vue'], resolve)
     }, {
       path: '/radar-basic',
-      component: resolve => require(['./demos/radar/basic.vue'], resolve)
+      component: resolve => require(['./demos/Radar/basic.vue'], resolve)
     }, {
       path: '/sunburst-monochrome',
-      component: resolve => require(['./demos/sunburst/monochrome.vue'], resolve)
+      component: resolve => require(['./demos/Sunburst/monochrome.vue'], resolve)
     }, {
       path: '/gauge-simple',
-      component: resolve => require(['./demos/gauge/simple.vue'], resolve)
+      component: resolve => require(['./demos/Gauge/simple.vue'], resolve)
+    }, {
+      path: '/scatter-life-expectancy-timeline',
+      component: resolve => require(['./demos/Scatter/life-expectancy-timeline.vue'], resolve)
     }, {
       path: '/*',
       redirect: 'menus'

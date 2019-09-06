@@ -83,6 +83,9 @@ const router = new VueRouter({
       path: '/sunburst-monochrome',
       component: resolve => require(['./demos/sunburst/monochrome.vue'], resolve)
     }, {
+      path: '/gauge-simple',
+      component: resolve => require(['./demos/gauge/simple.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

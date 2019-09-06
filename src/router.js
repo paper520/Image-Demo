@@ -77,6 +77,9 @@ const router = new VueRouter({
       path: '/candlestick-simple',
       component: resolve => require(['./demos/candlestick/simple.vue'], resolve)
     }, {
+      path: '/radar-basic',
+      component: resolve => require(['./demos/radar/basic.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

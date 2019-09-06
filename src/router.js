@@ -80,6 +80,9 @@ const router = new VueRouter({
       path: '/radar-basic',
       component: resolve => require(['./demos/radar/basic.vue'], resolve)
     }, {
+      path: '/sunburst-monochrome',
+      component: resolve => require(['./demos/sunburst/monochrome.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

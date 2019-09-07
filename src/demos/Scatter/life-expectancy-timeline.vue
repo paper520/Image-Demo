@@ -18,7 +18,7 @@ export default {
         width: 600,
         height: 600
       })
-      .css("background-color", "rgb(64, 74, 89)")
+      .css("background-color", "white")
       // 画布添加到页面
       .appendTo("#demo")
       // 获取图层
@@ -26,8 +26,8 @@ export default {
 
     let painter = layer
       .painter("bg")
-      .config("strokeStyle", "white")
-      .config("fillStyle", "white")
+      .config("strokeStyle", "#000")
+      .config("fillStyle", "#000")
 
       // 绘制刻度尺
       .beginPath()
@@ -75,29 +75,29 @@ export default {
     });
 
     let colors = [
-      "rgba(199, 207, 179, 0.85)",
-      "rgba(158, 178, 161, 0.8)",
-      "rgba(198, 163, 143, 0.7)",
-      "rgba(208, 132, 108, 0.78)",
-      "rgb(134, 167, 171,0.7)",
-      "rgba(190, 200, 199, 0.86)",
-      "rgba(60, 235, 219, 0.86)",
-      "rgba(92, 225, 98, 0.85)",
-      "rgba(96, 125, 139, 0.78)",
-      "rgba(241, 239, 237, 0.7)",
-      "rgba(150, 100, 101, 0.7)",
-      "rgba(121, 85, 72, 0.76)",
-      "rgba(162, 235, 77, 0.76)",
-      "rgba(71, 220, 239, 0.76)",
-      "rgba(63, 81, 181, 0.75)",
-      "rgba(214, 102, 233, 0.74)",
-      "rgba(60, 221, 229, 0.73)",
-      "rgba(221, 111, 74, 0.85)"
+      "rgba(199, 207, 179, 0.5)",
+      "rgba(10, 178, 11, 0.5)",
+      "rgba(18, 163, 143, 0.5)",
+      "rgba(208, 132, 108, 0.5)",
+      "rgb(134, 167, 171,0.5)",
+      "rgba(190, 200, 199, 0.5)",
+      "rgba(60, 235, 219, 0.5)",
+      "rgba(92, 225, 98, 0.5)",
+      "rgba(96, 125, 139, 0.5)",
+      "rgba(241, 239, 237, 0.5)",
+      "rgba(150, 100, 101, 0.5)",
+      "rgba(121, 85, 72, 0.5)",
+      "rgba(162, 235, 77, 0.5)",
+      "rgba(71, 220, 239, 0.5)",
+      "rgba(63, 81, 181, 0.5)",
+      "rgba(214, 102, 233, 0.5)",
+      "rgba(60, 221, 229, 0.5)",
+      "rgba(221, 111, 174, 0.5)"
     ];
 
     painter = layer.painter("animation").config({
       "font-size": 100,
-      strokeStyle: "white"
+      strokeStyle: "#000"
     });
     let doIt = function(index, toIndex) {
       $$.animation(
@@ -130,13 +130,13 @@ export default {
         },
         700,
         () => {
-          setTimeout(() => {
-            if (toIndex == 80) {
-              doIt(80, 0);
-            } else {
+          // setTimeout(() => {
+          //   if (toIndex == 80) {
+          //     doIt(80, 0);
+          //   } else {
               doIt(toIndex, toIndex + 1);
-            }
-          }, 100);
+          //   }
+          // }, 100);
         }
       );
     };

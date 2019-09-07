@@ -131,11 +131,11 @@ export default {
         700,
         () => {
           // setTimeout(() => {
-          //   if (toIndex == 80) {
-          //     doIt(80, 0);
-          //   } else {
+            if (toIndex == 80) {
+              doIt(80, 0);
+            } else {
               doIt(toIndex, toIndex + 1);
-          //   }
+            }
           // }, 100);
         }
       );

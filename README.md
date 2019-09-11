@@ -1,7 +1,7 @@
 # Image-Demo
 🌾  前端绘制的一些二维和三维图形例子，主要基于image2D和image3D。
 
-<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/preview.png">
+<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif">
 
 如何启动本地编辑？
 --------------------------------------
@@ -23,4 +23,4 @@ npm run dev
 npm run build
 ```
 
-<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif.png">
+<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/preview.png">

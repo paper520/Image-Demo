@@ -22,5 +22,3 @@ npm run dev
 ```bash
 npm run build
 ```
-
-<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/preview.png">

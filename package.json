@@ -25,7 +25,7 @@
   "dependencies": {
     "@yelloxing/normalize.css": "^0.2.0",
     "image2d": "^1.4.0",
-    "image3d": "^0.1.1-beta",
+    "image3d": "^1.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.2"
   },

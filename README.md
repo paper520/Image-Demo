@@ -23,4 +23,4 @@ npm run dev
 npm run build
 ```
 
-<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif.png">
+<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif">

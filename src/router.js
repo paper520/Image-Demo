@@ -89,6 +89,9 @@ const router = new VueRouter({
       path: '/scatter-life-expectancy-timeline',
       component: resolve => require(['./demos/Scatter/life-expectancy-timeline.vue'], resolve)
     }, {
+      path: '/map-china',
+      component: resolve => require(['./demos/Map/china.vue'], resolve)
+    }, {
       path: '/*',
       redirect: 'menus'
     }]

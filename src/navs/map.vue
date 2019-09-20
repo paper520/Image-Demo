@@ -6,7 +6,10 @@
     </template>
     <template v-slot:content>
       <ul>
-        
+         <li>
+          <h4>China Map</h4>
+          <a href="#/map-china" target="_blank" style='background-image:url("./src/navs/map/map-china.png")'></a>
+        </li>
       </ul>
     </template>
   </ui-navs>

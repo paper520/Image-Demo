@@ -23,8 +23,8 @@
   },
   "homepage": "https://github.com/yelloxing/Image-Demo#readme",
   "dependencies": {
-    "@yelloxing/normalize.css": "^0.2.0",
-    "image2d": "^1.4.3",
+    "@yelloxing/normalize.css": "^0.2.1",
+    "image2d": "^1.4.6",
     "image3d": "^1.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.2"

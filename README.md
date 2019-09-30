@@ -3,6 +3,8 @@
 
 <img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif">
 
+> 欢迎大家贡献例子代码，有任何疑惑都可以及时提issue!
+
 如何启动本地编辑？
 --------------------------------------
 首先，你需要确保本地安装了node.js，然后，执行下面命令安装项目依赖：

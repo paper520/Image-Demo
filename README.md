@@ -2,7 +2,7 @@
 
 <img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/image/hahaha.gif">
 
-> 欢迎大家贡献例子代码，有任何疑惑都可以及时提issue!
+> 欢迎大家贡献例子代码，有任何疑惑都可以及时提[issue](https://github.com/yelloxing/Image-Demo/issues)!
 
 如何启动本地编辑？
 --------------------------------------

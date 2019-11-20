@@ -1,11 +1,9 @@
 {
   "name": "image-demo",
-  "version": "0.1.0",
-  "description": "🌾 前端绘制的一些二维和三维图形例子，主要基于image2D和image3D。",
+  "version": "1.0.0",
+  "description": "📚 一些有趣的Web图形或小游戏，纯粹出于喜欢，和大家分享这简单的设计。",
   "scripts": {
-    "start": "npm install && npm run dev",
-    "dev": "node_modules/.bin/webpack-dev-server --open --mode development --config webpack.config.js",
-    "build": "cuf -d ./dist && node_modules/.bin/webpack --mode production"
+    "start": "node_modules/.bin/grunt server"
   },
   "repository": {
     "type": "git",
@@ -13,8 +11,7 @@
   },
   "keywords": [
     "algorithm",
-    "vue",
-    "css"
+    "image"
   ],
   "author": "心叶",
   "license": "MIT",
@@ -22,27 +19,8 @@
     "url": "https://github.com/yelloxing/Image-Demo/issues"
   },
   "homepage": "https://github.com/yelloxing/Image-Demo#readme",
-  "dependencies": {
-    "@yelloxing/normalize.css": "^0.2.1",
-    "image2d": "^1.4.6",
-    "image3d": "^1.0.1",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.2"
-  },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.0.0",
-    "babel-plugin-dynamic-import-webpack": "^1.1.0",
-    "babel-preset-env": "^1.7.0",
-    "css-loader": "^3.2.0",
-    "cuf": "^1.0.3",
-    "file-loader": "^4.2.0",
-    "url-loader": "^2.1.0",
-    "vue-loader": "^15.7.1",
-    "vue-style-loader": "^4.1.2",
-    "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "grunt": "^1.0.1",
+    "grunt-http-server": "^2.1.0"
   }
 }

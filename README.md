@@ -1,7 +1,6 @@
-# Image-Demo
-🌾  前端绘制的一些二维和三维图形例子，主要基于image2D和image3D。
+📚  一些有趣的Web图形或小游戏，纯粹出于喜欢，和大家分享这简单的设计。
 
-<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/hahaha.gif">
+<img align="center" src="https://github.com/yelloxing/Image-Demo/blob/master/image/hahaha.gif">
 
 > 欢迎大家贡献例子代码，有任何疑惑都可以及时提issue!
 
@@ -13,14 +12,8 @@
 npm install
 ```
 
-接着，启动下面命令会自动打开页面，修改内容页面也自动刷新：
+接着，启动下面命令会自动打开页面：
 
 ```bash
-npm run dev
-```
-
-如果你想发布开发的代码，执行下面命令进行打包：
-
-```bash
-npm run build
+npm start
 ```

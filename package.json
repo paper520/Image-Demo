@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "📚 一些有趣的Web图形或小游戏，纯粹出于喜欢，和大家分享这简单的设计。",
   "scripts": {
-    "start": "node_modules/.bin/grunt server",
+    "start": "npm run update && npm run dev",
+    "dev": "node_modules/.bin/grunt server",
     "update": "npm install && cuf --copy node_modules/image2d/build/image2D.js lib/min/image2D.js"
   },
   "repository": {
@@ -26,6 +27,6 @@
     "grunt-http-server": "^2.1.0"
   },
   "dependencies": {
-    "image2d": "^1.4.8"
+    "image2d": "^1.4.10"
   }
 }

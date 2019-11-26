@@ -30,16 +30,30 @@
 }
 
 .menu-view>.examples {
-  height: 4.6rem;
-  background-color: #ddd;
-  overflow: hidden;
-  min-width: 9rem;
-
-  /* 临时CSS */
-  line-height: 4.6rem;
+  width: 9rem;
+  margin: auto;
   text-align: center;
-  font-size: .5rem;
-  color: white;
+}
+
+.menu-view>.examples>li {
+  display: inline-block;
+  width: 4rem;
+  height: 3rem;
+  margin: .2rem 0;
+  background-color: #eee;
+}
+.menu-view>.examples>li.help{
+  height: 0;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+}
+
+.menu-view>.examples>li:nth-child(2n) {
+  margin-left: .2rem;
+}
+
+.menu-view>.examples>li:nth-child(2n+1) {
+  margin-right: .2rem;
 }
 
 .menu-view>.advertisement {

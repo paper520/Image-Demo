@@ -33,6 +33,7 @@
   width: 9rem;
   margin: auto;
   text-align: center;
+  user-select: none;
 }
 
 .menu-view>.examples>li {
@@ -42,6 +43,7 @@
   margin: .1rem;
   border: 2px solid #eee;
   cursor: pointer;
+  border-radius: .07rem;
 }
 
 .menu-view>.examples>li.help {

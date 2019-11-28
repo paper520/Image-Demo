@@ -1,5 +1,10 @@
 <section class='example-view' ng-init='initMethod()'>
-    开发中，敬请期待？
-    <hr />
-    预计本周结束前完成。
+
+    <!-- 控制按钮 -->
+    <span ng-click='goto("menu")' class='goBack'>返回</span>
+    <span ng-click='loadExample("money-schedule")' class='codeview'>源码</span>
+
+    <!-- 画布 -->
+    <svg id='palette'></svg>
+
 </section>

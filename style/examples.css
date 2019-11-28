@@ -63,3 +63,7 @@
 .example-view>.codeview:hover {
   background-size: 100%;
 }
+
+#palette {
+  margin-top: 1rem;
+}

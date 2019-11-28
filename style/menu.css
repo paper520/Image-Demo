@@ -44,6 +44,15 @@
   border: 2px solid #eee;
   cursor: pointer;
   border-radius: .07rem;
+  background-position: center center;
+}
+
+.menu-view>.examples>li:hover {
+  background-size: 110%;
+  transition: background-size 2s;
+  -moz-transition: background-size 2s;
+  -webkit-transition: background-size 2s;
+  -o-transition: background-size 2s;
 }
 
 .menu-view>.examples>li.help {

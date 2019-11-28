@@ -1,4 +1,4 @@
-ctrlapp.register.controller('menuController', ['$scope', '$state', function ($scope, $state) {
+ctrlapp.register.controller('menuController', ['$scope', function ($scope) {
 
   $scope.initMethod = function () {
 

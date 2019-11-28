@@ -13,3 +13,27 @@
 .examples>li:nth-child(4) {
   background-image: url(../image/examples/money-schedule.png);
 }
+
+/*
+----------------------------------------
+例子界面
+----------------------------------------
+*/
+
+.example-view {
+  text-align: center;
+  width: 9rem;
+  margin: auto;
+}
+
+.example-view>.codeview {
+  position: fixed;
+  background-image: url(../image/edit.png);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: .5rem;
+  height: .5rem;
+  display: inline-block;
+  font-size: 0;
+}

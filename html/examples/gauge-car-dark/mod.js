@@ -1,4 +1,4 @@
-ctrlapp.register.controller('gaugeCarDarkController', ['$scope', function ($scope) {
+ctrlapp.register.controller('gaugeCarDarkController', ['$remote', '$scope', function ($remote, $scope) {
 
     $scope.initMethod = function () {
 

@@ -1,4 +1,4 @@
-ctrlapp.register.controller('moneyScheduleController', ['$scope', function ($scope) {
+ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', function ($remote, $scope) {
 
     $scope.initMethod = function () {
 

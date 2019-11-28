@@ -49,7 +49,7 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
         $$.animation(function (deep) {
 
             // 根据当前进度deep更新弧形进度
-            painter.fillArc(250, 250, 180, 200, 0, Math.PI * 2 * rate * deep);
+            painter.fillArc(250, 250, 180, 200, -Math.PI / 2, -Math.PI * 2 * (1 - rate) * deep);
 
         }, 700, function () {
 

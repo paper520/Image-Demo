@@ -26,9 +26,9 @@
   margin: auto;
 }
 
+.example-view>.goBack,
 .example-view>.codeview {
   position: fixed;
-  background-image: url(../image/edit.png);
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -36,4 +36,30 @@
   height: .5rem;
   display: inline-block;
   font-size: 0;
+  top: .1rem;
+  cursor: pointer;
+}
+
+.example-view>.goBack {
+  background-image: url(../image/goBack.png);
+  left: .1rem;
+}
+
+.example-view>.codeview {
+  background-image: url(../image/edit.png);
+  right: .1rem;
+}
+
+.example-view>.goBack:hover {
+  background-image: url(../image/goBack_hover.png);
+}
+
+.example-view>.codeview:hover {
+  background-image: url(../image/edit_hover.png);
+
+}
+
+.example-view>.goBack:hover,
+.example-view>.codeview:hover {
+  background-size: 100%;
 }

@@ -1,11 +1,7 @@
 ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', function ($remote, $scope) {
 
     $scope.initMethod = function () {
-
         $remote.get('./data/moisture.json', $scope.doDraw);
-
-        alert('开发中');
-
     };
 
     $scope.doDraw = function (data) {
@@ -15,7 +11,9 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             "width": "865",
             "height": "660"
         }).painter();
-    };
 
+        painter.fillText('温馨提示：开发中！',0,30);
+
+    };
 
 }]);

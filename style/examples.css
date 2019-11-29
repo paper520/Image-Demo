@@ -32,7 +32,8 @@
   position: fixed;
   background-size: 90%;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position-x: center;
+  background-position-y: top;
   width: .5rem;
   height: .5rem;
   display: inline-block;
@@ -51,16 +52,12 @@
   right: .1rem;
 }
 
-.example-view>.goBack:hover {
-  background-image: url(../image/goBack_hover.png);
-}
-
-.example-view>.codeview:hover {
-  background-image: url(../image/edit_hover.png);
-
-}
-
 .example-view>.goBack:hover,
 .example-view>.codeview:hover {
   background-size: 100%;
+  background-position-y: bottom;
+}
+
+#palette {
+  margin-top: .5rem;
 }

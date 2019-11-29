@@ -100,7 +100,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
                 'strokeStyle': '#000',
                 'fillStyle': '#000',
                 'textAlign': 'right',
-                'font-size': 12
+                'font-size': 10
             })
 
             // 绘制刻度尺底线
@@ -117,7 +117,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
                 .beginPath().moveTo(18.75, y).lineTo(22.5, y).stroke()
 
                 // 绘制文字
-                .fillText(i * 37.5, 22.5, y);
+                .fillText(i * 50, 17, y);
 
         }
 

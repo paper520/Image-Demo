@@ -104,17 +104,10 @@
   line-height: 1.4em;
 }
 
-.menu-view>.item [download] {
-  color: white;
-  background-color: #5379b0;
-  font-size: .14rem;
-  padding: .01rem .1rem;
-  border-radius: .1rem;
-}
-
 .menu-view>.item .link {
   color: #5379b0;
   font-weight: 800;
+  text-decoration: underline;
 }
 
 .menu-view>footer.item {

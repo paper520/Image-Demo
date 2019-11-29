@@ -208,7 +208,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             layer.update();
 
             // 启动悬浮交互
-            $scope.hoverInfo(layer, layer.painter('hover'));
+            $scope.hoverInfo(layer, layer.painter('hover'), data, line2015, line2016);
 
         });
 
@@ -232,7 +232,56 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
-    $scope.hoverInfo = function (layer, painter) {
+    $scope.hoverInfo = function (layer, painter, data, line2015, line2016) {
+
+        painter.config({
+            'textAlign': 'center',
+            'font-size': 10
+        });
+
+        $$('#palette').bind('mousemove', function (event) {
+            painter.clearRect();
+
+            var position = $$(this).position(event || window.event);
+            if (position.x > 22.5 && position.x < 626.25 && position.y > 60 && position.y < 472.5) {
+
+                painter
+
+                    // 绘制交叉直线
+                    .config("strokeStyle", "gray")
+                    .beginPath().moveTo(22.5, position.y).lineTo(625.25, position.y).stroke()
+                    .beginPath().moveTo(position.x, 60).lineTo(position.x, 472.5).stroke()
+
+                    // 绘制Y刻度值
+                    .config("fillStyle", '#000').fillRect(2.5, position.y - 8, 40, 16)
+                    .config('fillStyle', '#fff').fillText((250 - (position.y - 60) / 1.65).toFixed(2), 22.5, position.y);
+
+                var index = Math.floor((position.x - 9.375) / 52.5);
+                var x = 22.5 + (index + 0.25) * 52.5;
+
+                painter
+
+                    // 绘制2015提示文字
+                    .config('fillStyle', data[0].color).fillRect(position.x - 20, 44, 40, 16)
+                    .config('fillStyle', 'white').fillText(data[0].date[index], position.x, 52)
+
+                    // 绘制2016提示文字
+                    .config('fillStyle', data[1].color).fillRect(position.x - 20, 472.5, 40, 16)
+                    .config('fillStyle', 'white').fillText(data[1].date[index], position.x, 480.5)
+
+                    // 绘制2015圆圈
+                    .config('fillStyle', data[0].color).fillCircle(x, line2015(x), 5)
+                    .config('fillStyle', 'white').fillCircle(x, line2015(x), 4)
+
+                    // 绘制2016圆圈
+                    .config('fillStyle', data[1].color).fillCircle(x, line2016(x), 5)
+                    .config('fillStyle', 'white').fillCircle(x, line2016(x), 4);
+
+
+            }
+
+            layer.update();
+        });
 
     };
 

@@ -57,21 +57,35 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
         }, 2000, function () {
 
             // 初始化显示完毕以后，启动wave动画
-            $scope.renderWave(rate, painter, innerWave, outerWave);
+            $scope.renderWave(painter, rate, innerWave, outerWave);
         });
 
     };
 
-    $scope.renderWave = function (rate, painter, innerWave, outerWave) {
+    /**
+     * 启动wave动画
+     * @param {image2D.painter} painter image2D画笔
+     * @param {number} rate 比率
+     * @param {number} deep 动画进度
+     * @param {node} innerWave 内wave结点
+     * @param {node} outerWave 外wave结点
+     */
+    $scope.renderWave = function (painter, rate, innerWave, outerWave) {
         $$.animation(function (deep) {
-
             $scope.fullWave(painter, rate, deep, innerWave, outerWave);
-
         }, 2000, function () {
-            $scope.renderWave(rate, painter, innerWave, outerWave);
+            $scope.renderWave(painter, rate, innerWave, outerWave);
         });
     };
 
+    /**
+     * 绘制波浪（完整的二条）
+     * @param {image2D.painter} painter image2D画笔
+     * @param {number} rate 比率
+     * @param {number} deep 动画进度
+     * @param {node} innerWave 内wave结点
+     * @param {node} outerWave 外wave结点
+     */
     $scope.fullWave = function (painter, rate, deep, innerWave, outerWave) {
         var help = 1;
 
@@ -88,15 +102,28 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
         $scope.drawerWave(painter.bind(outerWave).config('fillStyle', '#fead2e'), rate, deep, -help);
     };
 
+    /**
+     * 绘制具体的一条wave
+     * @param {image2D.painter} painter image2D画笔
+     * @param {number} rate 比率
+     * @param {number} deep 动画进度
+     * @param {number} help wave类型，去1或-1，分二种：开始上波和开始下波
+     */
     $scope.drawerWave = function (painter, rate, deep, help) {
 
+        // wave的起点和终点
         var beginPoint = $$.rotate(250, 250, (0.5 - rate) * Math.PI, 410, 250);
         var endPoint = $$.rotate(250, 250, (1.5 - rate) * Math.PI, 410, 250);
 
+        // wave由下半圆和波浪组成
         painter
             .beginPath()
             .moveTo(beginPoint[0], beginPoint[1])
+
+            // 绘制半圆部分
             .arc(250, 250, 160, (0.5 - rate) * Math.PI, 2 * rate * Math.PI)
+
+            // 绘制波浪部分
             .bezierCurveTo(
 
                 // rate > 0.5 ? 1 - rate : rate是用来控制波动大小的，为了好看，0-0.5和0.5-1取对称
@@ -106,6 +133,8 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
                 // 上面是第一和第二个看着点，最后这个是终点，加上画笔开始位置作为起点
                 beginPoint[0], beginPoint[1]
             )
+
+            // 填充
             .fill();
 
     };

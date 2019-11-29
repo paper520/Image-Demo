@@ -26,6 +26,17 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
         $scope.drawerTitle(bgPainter, 320, data[0].color, data[0].name);
         $scope.drawerTitle(bgPainter, 470, data[1].color, data[1].name);
 
+        // 绘制背景灰线条
+        var i, y;
+        bgPainter.config('strokeStyle', 'gray');
+        for (i = 0; i < 4; i++) {
+            y = 520 - i * 110;
+            bgPainter.beginPath().moveTo(30, y).lineTo(835, y).stroke();
+        }
+
+        // 绘制曲线
+        $scope.lineData(layer, layer.painter('data'), data);
+
         // 背景绘制完毕，更新内容到画布
         layer.update();
 
@@ -111,6 +122,68 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             // 绘制文字
             .config('fillStyle', '#000')
             .fillText(title, x + 35, 25);
+
+    };
+
+    $scope.lineData = function (layer, painter, data) {
+
+        // 把数据变成页面上对应的坐标
+        var toPoints = function (orgData) {
+            var i, points = [];
+            for (i = 0; i < orgData.length; i++) {
+                points.push([
+                    30 + (0.25 + i) * 70,
+                    630 - orgData[i] * 2.2
+                ]);
+            }
+            return points;
+        };
+
+        var points2015 = toPoints(data[0].data);
+        var points2016 = toPoints(data[1].data);
+
+        // 根据点获取二条回归直线
+        var line2015 = $$.cardinal().setP(points2015);
+        var line2016 = $$.cardinal().setP(points2016);
+
+        $$.animation(function (deep) {
+
+            // 擦干净数据图层
+            painter.clearRect();
+
+            var begX = 47.5,
+                endX = (11 * deep + 0.25) * 70 + 30;
+
+            // 绘制2015和2016
+            $scope.lineImage(painter.config('strokeStyle', data[0].color), begX, endX, line2015);
+            $scope.lineImage(painter.config('strokeStyle', data[1].color), begX, endX, line2016);
+
+            // 更新到画布
+            layer.update();
+
+        }, 2000, function () {
+
+            // 绘制白点
+
+            // 启动悬浮交互
+            $scope.hoverInfo(layer, layer.painter('hover'));
+
+        });
+
+    };
+
+    $scope.lineImage = function (painter, begX, endX, lineFun) {
+
+        var i;
+        painter.beginPath()
+        for (i = begX; i < endX; i += 1) {
+            painter.lineTo(i, lineFun(i));
+        }
+        painter.stroke();
+
+    };
+
+    $scope.hoverInfo = function (layer, painter) {
 
     };
 

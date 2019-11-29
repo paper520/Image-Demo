@@ -4,6 +4,10 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
         $remote.get('./data/moisture.json', $scope.doDraw);
     };
 
+    /**
+     * 绘图入口
+     * @param {any} data 数据
+     */
     $scope.doDraw = function (data) {
 
         // 设置画布大小并获取图层
@@ -42,6 +46,14 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
+    /**
+     * 绘制X坐标轴
+     * @param {image2D.painter} painter 画笔
+     * @param {string} color 坐标轴主题颜色 
+     * @param {Array<string>} texts 刻度文字 
+     * @param {number} y 坐标轴Y坐标 
+     * @param {-1|1} help 标记文字在坐标轴上面还是下面 
+     */
     $scope.rulerX = function (painter, color, texts, y, help) {
 
         painter
@@ -74,6 +86,11 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
+
+    /**
+     * 绘制Y坐标轴
+     * @param {image2D.painter} painter 画笔 
+     */
     $scope.rulerY = function (painter) {
 
         painter
@@ -106,6 +123,13 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
+    /**
+     * 绘制标题
+     * @param {image2D.painter} painter 画笔 
+     * @param {number} x 标题起点X坐标 
+     * @param {string} color 标题颜色
+     * @param {string} title 标题 
+     */
     $scope.drawerTitle = function (painter, x, color, title) {
 
         painter.config({
@@ -125,6 +149,12 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
+    /**
+     * 把2015或2016的数据绘制到页面
+     * @param {image2D.layer} layer 图层管理对象 
+     * @param {image2D.painter} painter 画笔 
+     * @param {any} data 数据 
+     */
     $scope.lineData = function (layer, painter, data) {
 
         // 把数据变成页面上对应的坐标
@@ -158,12 +188,24 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             $scope.lineImage(painter.config('strokeStyle', data[0].color), begX, endX, line2015);
             $scope.lineImage(painter.config('strokeStyle', data[1].color), begX, endX, line2016);
 
-            // 更新到画布
             layer.update();
 
         }, 2000, function () {
 
             // 绘制白点
+            var i;
+            for (i = 0; i < 12; i++) {
+
+                var x = 47.5 + 70 * i;
+                painter
+                    // 大圈
+                    .config('fillStyle', data[0].color).fillCircle(x, line2015(x), 2.5)
+                    .config('fillStyle', data[1].color).fillCircle(x, line2016(x), 2.5)
+                    // 小圈
+                    .config('fillStyle', 'white').fillCircle(x, line2015(x), 2).fillCircle(x, line2016(x), 2);
+            }
+
+            layer.update();
 
             // 启动悬浮交互
             $scope.hoverInfo(layer, layer.painter('hover'));
@@ -172,6 +214,13 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
     };
 
+    /**
+     * 绘制2015或2016插值曲线
+     * @param {image2D.painter} painter 画笔
+     * @param {number} begX 开始X坐标
+     * @param {number} endX 结束X坐标
+     * @param {function} lineFun 曲线插值函数 
+     */
     $scope.lineImage = function (painter, begX, endX, lineFun) {
 
         var i;

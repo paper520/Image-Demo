@@ -12,30 +12,30 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
 
         // 设置画布大小并获取图层
         var layer = $$('#palette').attr({
-            "width": "865",
-            "height": "660"
+            "width": "648.75",
+            "height": "495"
         }).layer();
 
         // 获取绘制背景的画笔
         var bgPainter = layer.painter('background-image');
 
         // 绘制二条水平刻度尺
-        $scope.rulerX(bgPainter, data[0].color, data[0].date, 80, -1);
-        $scope.rulerX(bgPainter, data[1].color, data[1].date, 630, 1);
+        $scope.rulerX(bgPainter, data[0].color, data[0].date, 60, -1);
+        $scope.rulerX(bgPainter, data[1].color, data[1].date, 472.5, 1);
 
         // 绘制垂直刻度尺
         $scope.rulerY(bgPainter);
 
         // 绘制标题
-        $scope.drawerTitle(bgPainter, 320, data[0].color, data[0].name);
-        $scope.drawerTitle(bgPainter, 470, data[1].color, data[1].name);
+        $scope.drawerTitle(bgPainter, 240, data[0].color, data[0].name);
+        $scope.drawerTitle(bgPainter, 352.5, data[1].color, data[1].name);
 
         // 绘制背景灰线条
         var i, y;
         bgPainter.config('strokeStyle', 'gray');
         for (i = 0; i < 4; i++) {
-            y = 520 - i * 110;
-            bgPainter.beginPath().moveTo(30, y).lineTo(835, y).stroke();
+            y = 390 - i * 82.5;
+            bgPainter.beginPath().moveTo(22.5, y).lineTo(626.25, y).stroke();
         }
 
         // 绘制曲线
@@ -67,20 +67,20 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             })
 
             // 绘制刻度尺底线
-            .beginPath().moveTo(30, y).lineTo(835, y).stroke();
+            .beginPath().moveTo(22.5, y).lineTo(626.25, y).stroke();
 
         var i, x;
         for (i = 0; i < texts.length; i++) {
 
-            x = (i + 0.25) * 70 + 30;
+            x = (i + 0.25) * 52.5 + 22.5;
 
             painter
 
                 // 绘制小刻度
-                .beginPath().moveTo(x, y).lineTo(x, y + help * 10).stroke()
+                .beginPath().moveTo(x, y).lineTo(x, y + help * 7.5).stroke()
 
                 // 绘制文字
-                .fillText(texts[i], x, y + help * 20);
+                .fillText(texts[i], x, y + help * 15);
 
         }
 
@@ -104,20 +104,20 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             })
 
             // 绘制刻度尺底线
-            .beginPath().moveTo(30, 80).lineTo(30, 630).stroke();
+            .beginPath().moveTo(22.5, 60).lineTo(22.5, 472.5).stroke();
 
         var i, y;
         for (i = 0; i < 6; i++) {
 
-            y = 630 - i * 110;
+            y = 472.5 - i * 82.5;
 
             painter
 
                 // 绘制小刻度
-                .beginPath().moveTo(25, y).lineTo(30, y).stroke()
+                .beginPath().moveTo(18.75, y).lineTo(22.5, y).stroke()
 
                 // 绘制文字
-                .fillText(i * 50, 20, y);
+                .fillText(i * 37.5, 22.5, y);
 
         }
 
@@ -133,19 +133,19 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
     $scope.drawerTitle = function (painter, x, color, title) {
 
         painter.config({
-                'strokeStyle': color,
-                'fillStyle': '#fff',
-                'textAlign': 'left',
-                'font-size': 14
-            })
+            'strokeStyle': color,
+            'fillStyle': '#fff',
+            'textAlign': 'left',
+            'font-size': 14
+        })
 
             // 绘制文字前的小图标
-            .beginPath().moveTo(x, 25).lineTo(x + 30, 25).stroke()
-            .strokeCircle(x + 15, 25, 5).fillCircle(x + 15, 25, 5)
+            .beginPath().moveTo(x, 18.75).lineTo(x + 22.5, 18.75).stroke()
+            .strokeCircle(x + 11.25, 18.75, 3.75).fillCircle(x + 11.25, 18.75, 3.75)
 
             // 绘制文字
             .config('fillStyle', '#000')
-            .fillText(title, x + 35, 25);
+            .fillText(title, x + 26.25, 18.75);
 
     };
 
@@ -162,8 +162,8 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             var i, points = [];
             for (i = 0; i < orgData.length; i++) {
                 points.push([
-                    30 + (0.25 + i) * 70,
-                    630 - orgData[i] * 2.2
+                    22.5 + (0.25 + i) * 52.5,
+                    472.5 - orgData[i] * 1.65
                 ]);
             }
             return points;
@@ -181,8 +181,8 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             // 擦干净数据图层
             painter.clearRect();
 
-            var begX = 47.5,
-                endX = (11 * deep + 0.25) * 70 + 30;
+            var begX = 35.625,
+                endX = (11 * deep + 0.25) * 52.5 + 22.5;
 
             // 绘制2015和2016
             $scope.lineImage(painter.config('strokeStyle', data[0].color), begX, endX, line2015);
@@ -196,7 +196,7 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
             var i;
             for (i = 0; i < 12; i++) {
 
-                var x = 47.5 + 70 * i;
+                var x = 35.625 + 52.5 * i;
                 painter
                     // 大圈
                     .config('fillStyle', data[0].color).fillCircle(x, line2015(x), 2.5)

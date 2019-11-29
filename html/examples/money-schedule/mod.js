@@ -20,10 +20,10 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
 
         // 绘制三行文字
         painter.config({
-                'font-size': 40,
-                'fillStyle': '#272727',
-                'textAlign': 'center'
-            })
+            'font-size': 40,
+            'fillStyle': '#272727',
+            'textAlign': 'center'
+        })
             .bind("<text>").appendTo().fillText('￥100,000', 250, 210)
             .config({
                 'font-size': 30,
@@ -138,7 +138,7 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
 
 }]);
 
-var size = 600;
+var size = 400;
 
 // 鼠标滚轮滚动的时候缩放画布
 function scaleView(event) {

@@ -262,12 +262,12 @@ ctrlapp.register.controller('multipleXAxisController', ['$remote', '$scope', fun
                 painter
 
                     // 绘制2015提示文字
-                    .config('fillStyle', data[0].color).fillRect(position.x - 20, 44, 40, 16)
-                    .config('fillStyle', 'white').fillText(data[0].date[index], position.x, 52)
+                    .config('fillStyle', data[0].color).fillRect(position.x - 55, 44, 110, 16)
+                    .config('fillStyle', 'white').fillText("降水量 " + data[0].date[index] + " : " + data[0].data[index], position.x, 52)
 
                     // 绘制2016提示文字
-                    .config('fillStyle', data[1].color).fillRect(position.x - 20, 472.5, 40, 16)
-                    .config('fillStyle', 'white').fillText(data[1].date[index], position.x, 480.5)
+                    .config('fillStyle', data[1].color).fillRect(position.x - 55, 472.5, 110, 16)
+                    .config('fillStyle', 'white').fillText("降水量 " + data[1].date[index] + " : " + data[1].data[index], position.x, 480.5)
 
                     // 绘制2015圆圈
                     .config('fillStyle', data[0].color).fillCircle(x, line2015(x), 5)

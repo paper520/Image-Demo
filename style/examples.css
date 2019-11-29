@@ -23,6 +23,7 @@
 .example-view {
   text-align: center;
   width: 9rem;
+  height: 100vh;
   margin: auto;
 }
 

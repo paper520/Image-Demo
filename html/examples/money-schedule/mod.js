@@ -5,11 +5,8 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
         // 进度条
         var rate = 0.73;
 
-        // 设置画布大小并获取画笔
-        var painter = $$('#palette').attr({
-                "width": 500,
-                "height": 500
-            }).painter()
+        // 获取画笔
+        var painter = $$('#palette').painter()
 
             // 绘制三个背景圆
             .config('fillStyle', '#fff7e9').bind("<circle>").appendTo().fillCircle(250, 250, 250)
@@ -140,3 +137,20 @@ ctrlapp.register.controller('moneyScheduleController', ['$remote', '$scope', fun
     };
 
 }]);
+
+var size = 600;
+
+// 鼠标滚轮滚动的时候缩放画布
+function scaleView(event) {
+    event = event || window.event;
+    var detail = event.wheelDelta || event.detail;
+
+    if ((size >= 900 && detail > 0) || (size <= 100 && detail < 0)) return;
+
+    size += detail * 0.1;
+
+    $$('#palette').attr({
+        height: size,
+        width: size
+    });
+};

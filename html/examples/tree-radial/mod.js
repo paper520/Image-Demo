@@ -28,6 +28,9 @@ ctrlapp.register.controller('treeRadialController', ['$remote', '$scope', functi
         // 旋转角度
         beginDeg = Math.PI / 2;
 
+        // 隐藏子结点
+        hiddenChild = ['operator', 'axis', 'scale'];
+
         /*
          * -----------------------------------------
          * 开始绘图
@@ -54,7 +57,7 @@ ctrlapp.register.controller('treeRadialController', ['$remote', '$scope', functi
 
             // 获取子结点的方法
             "child": function (parentTree, initTree) {
-                if (hadDisplay.indexOf(parentTree.name) > -1 && parentTree.name != 'operator') {
+                if (hadDisplay.indexOf(parentTree.name) > -1 && hiddenChild.indexOf(parentTree.name) < 0) {
                     return parentTree.children;
                 } else {
                     return [];
@@ -133,18 +136,24 @@ ctrlapp.register.controller('treeRadialController', ['$remote', '$scope', functi
                         // 文字坐对齐还是右对齐
                         textAlign = (newData.node[id].deg < Math.PI / 2 || newData.node[id].deg > Math.PI / 2 * 3) ? 'left' : 'right';
 
-                    painter
+                    // 画结点
+                    painter.bind('#circle_' + id);
 
-                        // 画结点
-                        .bind('#circle_' + id).config('strokeStyle', 'rgb(194, 53, 49)').strokeCircle(nodeP[id][0], nodeP[id][1], isHad ? 2 : 2 * deep)
+                    if (hiddenChild.indexOf(id) < 0) {
+                        painter.config('strokeStyle', 'rgb(194, 53, 49)').strokeCircle(nodeP[id][0], nodeP[id][1], isHad ? 2 : 2 * deep);
+                    } else {
+                        painter.config('fillStyle', 'rgb(194, 53, 49)').fillCircle(nodeP[id][0], nodeP[id][1], isHad ? 2.5 : 2.5 * deep);
+                    }
 
-                        // 写文字
-                        .bind('#text_' + id).config({
-                            'fillStyle': "rgb(46, 52, 61)",
-                            'font-size': isHad ? 7 : 7 * deep,
-                            'textBaseline': 'middle',
-                            'textAlign': textAlign
-                        }).fillText("- " + id + " -", nodeP[id][0], nodeP[id][1], textAlign == 'right' ? newData.node[id].deg - Math.PI : newData.node[id].deg);
+
+
+                    // 写文字
+                    painter.bind('#text_' + id).config({
+                        'fillStyle': "rgb(46, 52, 61)",
+                        'font-size': isHad ? 7 : 7 * deep,
+                        'textBaseline': 'middle',
+                        'textAlign': textAlign
+                    }).fillText("- " + id + " -", nodeP[id][0], nodeP[id][1], textAlign == 'right' ? newData.node[id].deg - Math.PI : newData.node[id].deg);
 
                     if (newData.node[id].pid != null) {
 

@@ -21,15 +21,18 @@
   <ul class='examples'>
 
     <!-- 用例入口 -->
-    <li ng-click='goto("money-schedule")'></li>
-    <li ng-click='goto("tree-radial")'></li>
-    <li ng-click='goto("multiple-x-axis")'></li>
-
+    <li ng-click='goto("money-schedule")' class='item'></li>
+    <li ng-click='goto("tree-radial")' class='item'></li>
+    <li ng-click='goto("multiple-x-axis")' class='item'></li>
 
     <!-- 对齐辅助 -->
-    <li class='help'></li>
-    <li class='help'></li>
-    <li class='help'></li>
+    <li class='help item'></li>
+    <li class='help item'></li>
+    <li class='help item'></li>
+
+    <li class="more" ng-click='alert("更多用例即将到了，敬请期待！")'>
+      查看更多
+    </li>
 
   </ul>
 

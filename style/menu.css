@@ -34,9 +34,10 @@
   margin: auto;
   text-align: center;
   user-select: none;
+  position: relative;
 }
 
-.menu-view>.examples>li {
+.menu-view>.examples>li.item {
   display: inline-block;
   width: 2.6rem;
   height: 2rem;
@@ -45,6 +46,23 @@
   cursor: pointer;
   border-radius: .07rem;
   background-position: center center;
+}
+
+.menu-view>.examples>li.more {
+  position: absolute;
+  background-image: linear-gradient(#aaa1, #888f);
+  width: 8.3rem;
+  line-height: 3em;
+  bottom: 33px;
+  left: .35rem;
+  border-radius: 0 0 .1rem .07rem;
+  font-size: .24rem;
+  color: rgb(228, 225, 225);
+}
+
+.menu-view>.examples>li.more:hover {
+  color: white;
+  cursor: pointer;
 }
 
 .menu-view>.examples>li:hover {

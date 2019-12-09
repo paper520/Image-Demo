@@ -51,3 +51,21 @@ body {
   font-family: sans-serif;
   display: inline-block;
 }
+
+footer.item {
+  font-size: .12rem;
+  line-height: 10em;
+  margin: auto;
+  margin-top: .3rem;
+  width: 9rem;
+  line-height: 2em;
+  color: #555;
+  text-indent: 2em;
+  padding-bottom: .5rem;
+}
+
+footer.item .link {
+  color: #5379b0;
+  font-weight: 800;
+  text-decoration: underline;
+}

@@ -1,0 +1,80 @@
+<section class='entry-view' ng-init='initMethod()'>
+
+  <a href="https://github.com/yelloxing/Image-Demo" class='github'>Fork me on Github</a>
+
+  <header class='header'>
+
+    <nav>
+      <a href="/" class='active'>Home</a>
+      <a href="https://github.com/yelloxing/image2D">Code</a>
+      <a href="#menu">Examples</a>
+      <a href="https://yelloxing.github.io/image2D">Documentation</a>
+      <a href="https://github.com/yelloxing/image2D/issues/18">RFC</a>
+      <a href="https://github.com/yelloxing/image2D/issues">Issue</a>
+    </nav>
+
+    <h1 class='title'>
+      Image's Examples
+    </h1>
+
+  </header>
+
+  <ul class='examples'>
+
+    <!-- 用例入口 -->
+    <li ng-click='goto("money-schedule")' class='item'></li>
+    <li ng-click='goto("tree-radial")' class='item'></li>
+    <li ng-click='goto("multiple-x-axis")' class='item'></li>
+
+    <!-- 对齐辅助 -->
+    <li class='help item'></li>
+    <li class='help item'></li>
+    <li class='help item'></li>
+
+    <li class="more">
+      <a class='btn' href="javascript:void(0)" ng-click='goto("menu")'>查看更多 >></a>
+    </li>
+
+  </ul>
+
+  <a href="https://www.oschina.net/p/image2d" class='advertisement'>
+    📊📈🎉 本项目加入了<span>开源中国</span>并在其开源，欢迎大家关注！
+  </a>
+
+  <p class='item'>
+    <span class="black pointer" ng-click='openDoc()'>image2D.js</span>
+    是一个专注于前端绘图的JavaScript库。
+    <span class="black pointer" ng-click='openDoc()'>image2D</span>
+    可以帮助你更简单的使用HTML, SVG, CSS和Canvas来发挥你的创意，虽然直接使用原生接口也是可以的，不过使用
+    <span class="black pointer" ng-click='openDoc()'>image2D</span>
+    更容易，而且我们保留了足够的灵活性。
+  </p>
+
+  <p class="item">
+    我们推荐你使用npm方式引入：
+  </p>
+  <pre class='item prettyprint lang-js'>import $$ from 'image2d';</pre>
+
+  <p class="item">
+    当然，你也可以
+    <a href='https://codeload.github.com/yelloxing/image2D/zip/master' download class='link'>下载到本地</a>
+    后通过script标签引入，或者直接通过CDN引入（请选择你使用的版本）：
+  </p>
+  <pre
+    class='item prettyprint lang-html'>&lt;script src='https://cdn.jsdelivr.net/npm/image2d@1.4.10/build/image2D.min.js'&gt;&lt;/script&gt;</pre>
+
+  <p class="item">
+    在使用的过程中，你可以查看
+    <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" class='link'>更新日志</a>
+    来判断是否需要升级或应该选择那个版本。当然，我们提供向下兼容，因此在大部分情况下，最新版本可能都是比较好的选择！
+  </p>
+
+  <footer class='item'>
+    Library released under
+    <a href="https://github.com/yelloxing/image2D/blob/master/LICENSE" class='link'>MIT license</a>
+    . Copyright 2019
+    <a href="https://yelloxing.github.io/notebook/" class='link'>心叶 yelloxing</a>
+    .
+  </footer>
+
+</section>

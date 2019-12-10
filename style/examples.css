@@ -1,21 +1,37 @@
-.examples>li:nth-child(1) {
+.examples>li.money-schedule {
   background-image: url(../image/examples/money-schedule.png);
 }
 
-.examples>li:nth-child(2) {
+.examples>li.tree-radial {
   background-image: url(../image/examples/tree-radial.png);
 }
 
-.examples>li:nth-child(3) {
+.examples>li.multiple-x-axis {
   background-image: url(../image/examples/multiple-x-axis.png);
 }
 
-.examples>li:nth-child(4) {
+.examples>li.From-Left-to-Right-Tree {
   background-image: url(../image/examples/From-Left-to-Right-Tree.png);
 }
 
-.examples>li:nth-child(5) {
+.examples>li.bar-gradient {
   background-image: url(../image/examples/bar-gradient.png);
+}
+
+.examples>li.bar-simple {
+  background-image: url(../image/examples/bar-simple.png);
+}
+
+.examples>li.bar-polar-real-estate {
+  background-image: url(../image/examples/bar-polar-real-estate.png);
+}
+
+.examples>li.radar-basic {
+  background-image: url(../image/examples/radar-basic.png);
+}
+
+.examples>li.gauge-simple {
+  background-image: url(../image/examples/gauge-simple.png);
 }
 
 /*

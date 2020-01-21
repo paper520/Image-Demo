@@ -1,11 +1,13 @@
 {
   "name": "image-demo",
-  "version": "1.0.1",
-  "description": "📚 一些有趣的Web图形或小游戏，纯粹出于喜欢，和大家分享这简单的设计。",
+  "version": "1.0.2",
+  "description": "🍎 🍪 🍦 🍓  基于image2D和image3D开发的图形用例。",
   "scripts": {
     "start": "npm run update && npm run dev",
     "dev": "cuf --server 30000",
-    "update": "npm install && cuf --copy node_modules/image2d/build/image2D.js lib/min/image2D.js && cuf --copy node_modules/image3d/build/image3D.js lib/min/image3D.js"
+    "update": "npm install &&  npm run copy-image2d && npm run copy-image3d",
+    "copy-image2d": "cuf --copy node_modules/image2d/build/image2D.js lib/min/image2D.js",
+    "copy-image3d": "cuf --copy node_modules/image3d/build/image3D.js lib/min/image3D.js"
   },
   "repository": {
     "type": "git",
@@ -22,10 +24,10 @@
   },
   "homepage": "https://github.com/yelloxing/Image-Demo#readme",
   "devDependencies": {
-    "cuf": "^1.1.5"
+    "cuf": "^1.2.0"
   },
   "dependencies": {
-    "image2d": "^1.5.2",
-    "image3d": "^2.0.6"
+    "image2d": "^1.5.3",
+    "image3d": "^2.0.7"
   }
 }

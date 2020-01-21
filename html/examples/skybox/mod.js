@@ -78,17 +78,17 @@ ctrlapp.register.controller('skyboxController', ['$remote', '$scope', function (
                 }, 50);
 
               };
-              image6.src = "../../image/skybox-front.jpg";
+              image6.src = "image/skybox-front.jpg";
             };
-            image5.src = "../../image/skybox-back.jpg";
+            image5.src = "image/skybox-back.jpg";
           };
-          image4.src = "../../image/skybox-bottom.jpg";
+          image4.src = "image/skybox-bottom.jpg";
         };
-        image3.src = "../../image/skybox-top.jpg";
+        image3.src = "image/skybox-top.jpg";
       };
-      image2.src = "../../image/skybox-left.jpg";
+      image2.src = "image/skybox-left.jpg";
     };
-    image1.src = "../../image/skybox-right.jpg";
+    image1.src = "image/skybox-right.jpg";
 
   };
 

@@ -9,8 +9,12 @@ ctrlapp.register.controller('entryController', ['$scope', function ($scope) {
 
   };
 
-  $scope.openDoc = function () {
-    window.location.href = "https://yelloxing.github.io/image2D/#/guide"
+  $scope.open2DDoc = function () {
+    window.location.href = "https://yelloxing.github.io/image2D";
   };
+  $scope.open3DDoc = function () {
+    window.location.href = "https://yelloxing.github.io/image3D";
+  };
+
 
 }]);

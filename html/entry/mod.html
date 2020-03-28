@@ -6,11 +6,10 @@
 
     <nav>
       <a href="#entry" class='active'>Home</a>
-      <a href="https://github.com/yelloxing/image2D">Code</a>
+      <a href="https://github.com/yelloxing/image2D">image2D</a>
+      <a href="https://github.com/yelloxing/image3D">image3D</a>
       <a href="#menu">Examples</a>
-      <a href="https://yelloxing.github.io/image2D">Documentation</a>
-      <a href="https://github.com/yelloxing/image2D/issues/18">RFC</a>
-      <a href="https://github.com/yelloxing/image2D/issues">Issue</a>
+      <a href="https://github.com/yelloxing/Image-Demo/issues">Issue</a>
     </nav>
 
     <h1 class='title'>
@@ -32,42 +31,46 @@
 
   </ul>
 
-  <a href="https://www.oschina.net/p/image2d" class='advertisement'>
-    📊📈🎉 本项目加入了<span>开源中国</span>并在其开源，欢迎大家关注！
-  </a>
+  <span class='advertisement'>
+    📊📈🎉 本项目基于的库
+    <a href="https://www.oschina.net/p/image2d">【image2D】</a>
+    和
+    <a href="https://www.oschina.net/p/image3d">【image3D】</a>
+    加入了开源中国并在其开源，欢迎大家关注！
+  </span>
 
   <p class='item'>
-    <span class="black pointer" ng-click='openDoc()'>image2D.js</span>
-    是一个专注于前端绘图的JavaScript库。
-    <span class="black pointer" ng-click='openDoc()'>image2D</span>
-    可以帮助你更简单的使用HTML, SVG, CSS和Canvas来发挥你的创意，虽然直接使用原生接口也是可以的，不过使用
-    <span class="black pointer" ng-click='openDoc()'>image2D</span>
-    更容易，而且我们保留了足够的灵活性。
+    <span class="black pointer" ng-click='open2DDoc()'>image2D.js</span>
+    和
+    <span class="black pointer" ng-click='open3DDoc()'>image3D.js</span>
+    是一个专注于前端绘图的JavaScript库。前者用于绘制二维图形，后者用于绘制三维图形，本项目主要是用于演示一些基于此开发的用例，欢迎你的加入。
   </p>
 
   <p class="item">
     我们推荐你使用npm方式引入：
   </p>
   <pre class='item prettyprint lang-js'>import $$ from 'image2d';</pre>
+  <pre class='item prettyprint lang-js'>import image3D from 'image3d';</pre>
 
   <p class="item">
-    当然，你也可以
-    <a href='https://codeload.github.com/yelloxing/image2D/zip/master' download class='link'>下载到本地</a>
-    后通过script标签引入，或者直接通过CDN引入（请选择你使用的版本）：
+    当然，你也可以直接通过CDN引入（请选择你使用的版本）：
   </p>
   <pre
-    class='item prettyprint lang-html'>&lt;script src='https://cdn.jsdelivr.net/npm/image2d@1.5.1/build/image2D.min.js'&gt;&lt;/script&gt;</pre>
+    class='item prettyprint lang-html'>&lt;script src='https://cdn.jsdelivr.net/npm/image2d@1.6.5/build/image2D.min.js'&gt;&lt;/script&gt;</pre>
+  <pre
+    class='item prettyprint lang-html'>&lt;script src='https://cdn.jsdelivr.net/npm/image3d@2.0.8/build/image3D.min.js'&gt;&lt;/script&gt;</pre>
 
   <p class="item">
     在使用的过程中，你可以查看
-    <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" class='link'>更新日志</a>
+    <a href="https://github.com/yelloxing/image2D/blob/master/CHANGELOG" class='link'>2D更新日志</a>
+    和
+    <a href="https://github.com/yelloxing/image3D/blob/master/CHANGELOG" class='link'>3D更新日志</a>
     来判断是否需要升级或应该选择那个版本。当然，我们提供向下兼容，因此在大部分情况下，最新版本可能都是比较好的选择！
   </p>
 
   <footer class='item'>
-    Library released under
-    <a href="https://github.com/yelloxing/image2D/blob/master/LICENSE" class='link'>MIT license</a>
-    . Copyright 2019
+    Library released under MIT license
+    . Copyright 2019 - 2020
     <a href="https://yelloxing.github.io/notebook/" class='link'>心叶 yelloxing</a>
     .
   </footer>
